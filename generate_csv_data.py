@@ -2,8 +2,15 @@ import csv
 import random
 import time
 from pathlib import Path
+import sys
 
 csv_file_path_name = Path(Path.cwd(), 'datasets', 'fake_csv_data', 'data.csv')
+
+try: 
+    csv_file_path_name.mkdir(parents=True, exist_ok=True)
+except Exception as err:
+    print(err)
+    sys.exit()
 
 header_column_names = ['x_data', 'price_in_us', 'price_in_jp']
 x_data = 0
